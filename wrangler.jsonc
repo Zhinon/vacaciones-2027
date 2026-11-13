@@ -3,11 +3,20 @@
   "name": "vacaciones-2027",
   "main": "src/worker.js",
   "compatibility_date": "2026-11-13",
-  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/api/*"] },
-  "d1_databases": [{
-    "binding": "DB",
-    "database_name": "vacaciones-2027",
-    "database_id": "00000000-0000-0000-0000-000000000000",
-    "migrations_dir": "migrations"
-  }]
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "vacaciones-2027",
+      "database_id": "8da9c7ab-7ea5-4e88-8c03-6d202486026d",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "account_id": "94bf410c74d78e9103545dc80cc2a354"
 }

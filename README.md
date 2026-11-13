@@ -2,6 +2,12 @@
 
 Tablero para cinco adultos: propuestas de viaje, opiniones, una favorita por persona, comentarios, comparación, sugerencias e investigación original. Título provisional, sin marca inventada.
 
+## Sitio publicado
+
+https://vacaciones-2027.aranda-ariel-norberto.workers.dev
+
+Publicado en la cuenta personal de Cloudflare, con D1 y clave del organizador configurados. La clave está guardada localmente en `.dev.vars`, con permisos de lectura restringidos y fuera de Git.
+
 ## Desarrollo
 
 Requiere Node.js 22.12 o superior y npm. Con nvm: `nvm use`.
@@ -31,7 +37,7 @@ npx wrangler whoami
 npx wrangler d1 create vacaciones-2027
 ```
 
-Copiar el `database_id` retornado a `wrangler.jsonc`, reemplazando el UUID de ceros de desarrollo. No desplegar con el placeholder.
+La base de producción ya está conectada en `wrangler.jsonc`. Para una instalación en otra cuenta, crear otra base y reemplazar `account_id` y `database_id`. No desplegar con un UUID de ceros.
 
 ```sh
 npm run db:remote
