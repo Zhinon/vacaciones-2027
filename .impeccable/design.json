@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-13T21:19:56.362139+00:00",
+  "title": "Design System: Vacaciones · abril 2027",
+  "extensions": {
+    "colorMeta": {
+      "green": {
+        "role": "primary",
+        "displayName": "Verde petróleo",
+        "tonalRamp": [
+          "oklch(15% 0.075 165)",
+          "oklch(26% 0.075 165)",
+          "oklch(38% 0.075 165)",
+          "oklch(50% 0.075 165)",
+          "oklch(62% 0.075 165)",
+          "oklch(74% 0.075 165)",
+          "oklch(86% 0.075 165)",
+          "oklch(95% 0.075 165)"
+        ]
+      },
+      "green-light": {
+        "role": "neutral",
+        "displayName": "Verde claro",
+        "tonalRamp": [
+          "oklch(15% 0.018 160)",
+          "oklch(26% 0.018 160)",
+          "oklch(38% 0.018 160)",
+          "oklch(50% 0.018 160)",
+          "oklch(62% 0.018 160)",
+          "oklch(74% 0.018 160)",
+          "oklch(86% 0.018 160)",
+          "oklch(95% 0.018 160)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel marfil",
+        "tonalRamp": [
+          "oklch(15% 0.009 95)",
+          "oklch(26% 0.009 95)",
+          "oklch(38% 0.009 95)",
+          "oklch(50% 0.009 95)",
+          "oklch(62% 0.009 95)",
+          "oklch(74% 0.009 95)",
+          "oklch(86% 0.009 95)",
+          "oklch(95% 0.009 95)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "tonalRamp": [
+          "oklch(15% 0.035 190)",
+          "oklch(26% 0.035 190)",
+          "oklch(38% 0.035 190)",
+          "oklch(50% 0.035 190)",
+          "oklch(62% 0.035 190)",
+          "oklch(74% 0.035 190)",
+          "oklch(86% 0.035 190)",
+          "oklch(95% 0.035 190)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Tinta atenuada",
+        "tonalRamp": [
+          "oklch(15% 0.025 185)",
+          "oklch(26% 0.025 185)",
+          "oklch(38% 0.025 185)",
+          "oklch(50% 0.025 185)",
+          "oklch(62% 0.025 185)",
+          "oklch(74% 0.025 185)",
+          "oklch(86% 0.025 185)",
+          "oklch(95% 0.025 185)"
+        ]
+      },
+      "sand": {
+        "role": "neutral",
+        "displayName": "Arena",
+        "tonalRamp": [
+          "oklch(15% 0.05 80)",
+          "oklch(26% 0.05 80)",
+          "oklch(38% 0.05 80)",
+          "oklch(50% 0.05 80)",
+          "oklch(62% 0.05 80)",
+          "oklch(74% 0.05 80)",
+          "oklch(86% 0.05 80)",
+          "oklch(95% 0.05 80)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Línea gris verdosa",
+        "tonalRamp": [
+          "oklch(15% 0.015 135)",
+          "oklch(26% 0.015 135)",
+          "oklch(38% 0.015 135)",
+          "oklch(50% 0.015 135)",
+          "oklch(62% 0.015 135)",
+          "oklch(74% 0.015 135)",
+          "oklch(86% 0.015 135)",
+          "oklch(95% 0.015 135)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Blanco cálido",
+        "tonalRamp": [
+          "oklch(15% 0.004 95)",
+          "oklch(26% 0.004 95)",
+          "oklch(38% 0.004 95)",
+          "oklch(50% 0.004 95)",
+          "oklch(62% 0.004 95)",
+          "oklch(74% 0.004 95)",
+          "oklch(86% 0.004 95)",
+          "oklch(95% 0.004 95)"
+        ]
+      },
+      "red": {
+        "role": "semantic",
+        "displayName": "Rojo terroso",
+        "tonalRamp": [
+          "oklch(15% 0.1 32)",
+          "oklch(26% 0.1 32)",
+          "oklch(38% 0.1 32)",
+          "oklch(50% 0.1 32)",
+          "oklch(62% 0.1 32)",
+          "oklch(74% 0.1 32)",
+          "oklch(86% 0.1 32)",
+          "oklch(95% 0.1 32)"
+        ]
+      },
+      "yellow": {
+        "role": "semantic",
+        "displayName": "Ocre",
+        "tonalRamp": [
+          "oklch(15% 0.09 75)",
+          "oklch(26% 0.09 75)",
+          "oklch(38% 0.09 75)",
+          "oklch(50% 0.09 75)",
+          "oklch(62% 0.09 75)",
+          "oklch(74% 0.09 75)",
+          "oklch(86% 0.09 75)",
+          "oklch(95% 0.09 75)"
+        ]
+      }
+    },
+    "shadows": [
+      {
+        "name": "toast",
+        "value": "0 6px 22px #17373726",
+        "purpose": "Aviso flotante únicamente."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "container",
+        "value": "1240px"
+      },
+      {
+        "name": "mobile",
+        "value": "700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal de formulario.",
+      "html": "<button class=\"ds-button\">Publicar comentario</button>",
+      "css": ".ds-button{font:650 14px system-ui,sans-serif;min-height:44px;padding:11px 18px;border:0;border-radius:8px;background:var(--green,#155c54);color:var(--white,#fffefa);cursor:pointer}.ds-button:hover{background:#0f4842}.ds-button:focus-visible{outline:3px solid #ab620e;outline-offset:4px}.ds-button:disabled{opacity:.6;cursor:wait}"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción auxiliar de comparación.",
+      "html": "<button class=\"ds-secondary\">Comparar opciones</button>",
+      "css": ".ds-secondary{font:650 14px system-ui,sans-serif;min-height:44px;padding:11px 18px;border:1px solid #9bb5aa;border-radius:8px;background:transparent;color:var(--green,#155c54);cursor:pointer}.ds-secondary:hover{background:var(--green-light,#e5eee9)}.ds-secondary:focus-visible{outline:3px solid #ab620e;outline-offset:4px}.ds-secondary:disabled{opacity:.6;cursor:wait}"
+    },
+    {
+      "name": "Campo de nombre",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Campo con etiqueta visible.",
+      "html": "<label class=\"ds-field\">Agregar mi nombre<input placeholder=\"Tu nombre\" autocomplete=\"given-name\"></label>",
+      "css": ".ds-field{display:grid;gap:7px;font:600 14px system-ui,sans-serif;color:var(--ink,#173737)}.ds-field input{font:400 14px system-ui,sans-serif;padding:11px 12px;border:1px solid #aabbb3;border-radius:8px;background:var(--white,#fffefa);color:var(--ink,#173737);min-height:44px;caret-color:var(--green,#155c54)}.ds-field input::placeholder{color:#62736d;opacity:1}.ds-field input:focus-visible{outline:3px solid #ab620e;outline-offset:4px}"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Secciones con estado activo.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Secciones del viaje\"><a href=\"#propuestas\" aria-current=\"page\">Propuestas</a><a href=\"#grupo\">Cómo vamos</a><a href=\"#sugerencias\">Sugerencias</a></nav>",
+      "css": ".ds-nav{display:flex;gap:30px;overflow-x:auto;border-bottom:1px solid var(--line,#d7ddd5);font:14px system-ui,sans-serif}.ds-nav a{white-space:nowrap;padding:15px 0 17px;text-decoration:none;color:var(--muted,#536766);border-bottom:2px solid transparent}.ds-nav a[aria-current]{color:var(--green,#155c54);border-bottom-color:var(--green,#155c54);font-weight:700}.ds-nav a:hover{color:var(--green,#155c54)}.ds-nav a:focus-visible{outline:3px solid #ab620e;outline-offset:4px}"
+    },
+    {
+      "name": "Etiqueta de régimen",
+      "kind": "chip",
+      "refersTo": "regime",
+      "description": "Etiqueta informativa de comidas.",
+      "html": "<span class=\"ds-regime\">All-inclusive</span>",
+      "css": ".ds-regime{display:inline-block;font:650 13px system-ui,sans-serif;padding:6px 10px;border-radius:6px;background:var(--green-light,#e5eee9);color:var(--green,#155c54)}"
+    },
+    {
+      "name": "Panel contextual",
+      "kind": "card",
+      "refersTo": "identity-panel",
+      "description": "Superficie tonal para elegir participante.",
+      "html": "<section class=\"ds-panel\"><h2>¿Quién está participando?</h2><p>Elegí tu nombre. Es un grupo por confianza.</p></section>",
+      "css": ".ds-panel{background:var(--green-light,#e5eee9);color:var(--ink,#173737);padding:24px;border-radius:12px}.ds-panel h2{font:400 27px Georgia,serif;letter-spacing:-.025em;margin:0 0 8px}.ds-panel p{font:14px/1.65 system-ui,sans-serif;margin:0;max-width:720px}"
+    },
+    {
+      "name": "Voto seleccionado",
+      "kind": "button",
+      "refersTo": "vote",
+      "description": "Opinión explícita con selección accesible.",
+      "html": "<button class=\"ds-vote\" aria-pressed=\"true\">Me sumo</button>",
+      "css": ".ds-vote{display:inline-flex;align-items:center;min-height:44px;padding:9px 13px;font:14px system-ui,sans-serif;border:1px solid var(--line,#d7ddd5);border-radius:8px;background:var(--white,#fffefa);color:var(--muted,#536766);cursor:pointer}.ds-vote[aria-pressed=true]{background:var(--green,#155c54);border-color:var(--green,#155c54);color:white;font-weight:650}.ds-vote:hover{border-color:#6d9585}.ds-vote:focus-visible{outline:3px solid #ab620e;outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "overview": "La interfaz construida conserva el fondo de papel claro, la tinta oscura y el verde petróleo definidos en el brief. La tipografía y los datos llevan la lectura; Georgia distingue los encabezados editoriales de los controles de sistema. El título es descriptivo y provisional, sin identidad de marca inventada.\n\nLas superficies son planas y los separadores organizan la información. Las fotografías sólo se incorporan cuando existe una fuente aprobada; la versión actual utiliza capturas de cotizaciones en la investigación y no fotografías decorativas en el listado.",
+    "keyCharacteristics": [
+      "Tipografía y datos antes que decoración.",
+      "Contraste de papel, tinta y verde petróleo.",
+      "Estados expresados con texto además del color.",
+      "Controles de tamaño táctil y foco visible."
+    ],
+    "rules": [],
+    "dos": [
+      "**Do** mantener la jerarquía de encabezados, datos y controles existente.",
+      "**Do** acompañar estados de selección y evidencia con texto.",
+      "**Do** conservar foco visible y controles táctiles de al menos 44px.",
+      "**Do** respetar la preferencia de movimiento reducido."
+    ],
+    "donts": [
+      "**Don't** sustituir el título provisional por una marca inventada.",
+      "**Don't** convertir las filas de propuestas en tarjetas decorativas con sombras.",
+      "**Don't** incorporar fotografías sin una fuente aprobada."
+    ]
+  }
+}

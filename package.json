@@ -1,0 +1,20 @@
+{
+  "name": "vacaciones-2027",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local --port 8787",
+    "db:local": "wrangler d1 migrations apply vacaciones-2027 --local",
+    "db:remote": "wrangler d1 migrations apply vacaciones-2027 --remote",
+    "deploy": "node scripts/deploy.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check src/worker.js && node --check public/app.js"
+  },
+  "devDependencies": {
+    "wrangler": "4.162.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
