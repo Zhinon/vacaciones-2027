@@ -19,3 +19,6 @@ public/investigacion.md y dos capturas de cotizaciones para cinco adultos. Valor
 - No presentar promociones mensuales como disponibilidad confirmada para cinco.
 ## Delivery
 Proyecto en /home/zhinon/Documentos/vacaciones-2027. Si se publica en GitHub, exclusivamente en la cuenta personal Zhinon. Cloudflare propio; no modificar MAB.
+
+## Visual Direction · 2026-11-13
+El usuario reemplaza el diseño anterior: playa en SVG con atardecer progresivo al hacer scroll, interfaz más vistosa y textos breves. Propuestas enfocadas en destino, precio, fechas y voto; condiciones completas en Investigación. Mantener el nombre descriptivo provisional. Respetar movimiento reducido con una escena estática.

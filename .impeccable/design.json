@@ -1,161 +1,243 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-13T21:19:56.362139+00:00",
+  "generatedAt": "2026-11-13T22:56:22.329850+00:00",
   "title": "Design System: Vacaciones · abril 2027",
   "extensions": {
     "colorMeta": {
-      "green": {
-        "role": "primary",
-        "displayName": "Verde petróleo",
-        "tonalRamp": [
-          "oklch(15% 0.075 165)",
-          "oklch(26% 0.075 165)",
-          "oklch(38% 0.075 165)",
-          "oklch(50% 0.075 165)",
-          "oklch(62% 0.075 165)",
-          "oklch(74% 0.075 165)",
-          "oklch(86% 0.075 165)",
-          "oklch(95% 0.075 165)"
-        ]
-      },
-      "green-light": {
-        "role": "neutral",
-        "displayName": "Verde claro",
-        "tonalRamp": [
-          "oklch(15% 0.018 160)",
-          "oklch(26% 0.018 160)",
-          "oklch(38% 0.018 160)",
-          "oklch(50% 0.018 160)",
-          "oklch(62% 0.018 160)",
-          "oklch(74% 0.018 160)",
-          "oklch(86% 0.018 160)",
-          "oklch(95% 0.018 160)"
-        ]
-      },
       "paper": {
         "role": "neutral",
-        "displayName": "Papel marfil",
+        "displayName": "Crema",
         "tonalRamp": [
-          "oklch(15% 0.009 95)",
-          "oklch(26% 0.009 95)",
-          "oklch(38% 0.009 95)",
-          "oklch(50% 0.009 95)",
-          "oklch(62% 0.009 95)",
-          "oklch(74% 0.009 95)",
-          "oklch(86% 0.009 95)",
-          "oklch(95% 0.009 95)"
+          "oklch(15% 0.0187 83.06)",
+          "oklch(26% 0.0187 83.06)",
+          "oklch(38% 0.0187 83.06)",
+          "oklch(50% 0.0187 83.06)",
+          "oklch(62% 0.0187 83.06)",
+          "oklch(74% 0.0187 83.06)",
+          "oklch(86% 0.0187 83.06)",
+          "oklch(95% 0.0187 83.06)"
         ]
       },
       "ink": {
         "role": "neutral",
         "displayName": "Tinta",
         "tonalRamp": [
-          "oklch(15% 0.035 190)",
-          "oklch(26% 0.035 190)",
-          "oklch(38% 0.035 190)",
-          "oklch(50% 0.035 190)",
-          "oklch(62% 0.035 190)",
-          "oklch(74% 0.035 190)",
-          "oklch(86% 0.035 190)",
-          "oklch(95% 0.035 190)"
+          "oklch(15% 0.0435 188.36)",
+          "oklch(26% 0.0435 188.36)",
+          "oklch(38% 0.0435 188.36)",
+          "oklch(50% 0.0435 188.36)",
+          "oklch(62% 0.0435 188.36)",
+          "oklch(74% 0.0435 188.36)",
+          "oklch(86% 0.0435 188.36)",
+          "oklch(95% 0.0435 188.36)"
         ]
       },
       "muted": {
         "role": "neutral",
         "displayName": "Tinta atenuada",
         "tonalRamp": [
-          "oklch(15% 0.025 185)",
-          "oklch(26% 0.025 185)",
-          "oklch(38% 0.025 185)",
-          "oklch(50% 0.025 185)",
-          "oklch(62% 0.025 185)",
-          "oklch(74% 0.025 185)",
-          "oklch(86% 0.025 185)",
-          "oklch(95% 0.025 185)"
+          "oklch(15% 0.0259 175.03)",
+          "oklch(26% 0.0259 175.03)",
+          "oklch(38% 0.0259 175.03)",
+          "oklch(50% 0.0259 175.03)",
+          "oklch(62% 0.0259 175.03)",
+          "oklch(74% 0.0259 175.03)",
+          "oklch(86% 0.0259 175.03)",
+          "oklch(95% 0.0259 175.03)"
+        ]
+      },
+      "green": {
+        "role": "primary",
+        "displayName": "Verde profundo",
+        "tonalRamp": [
+          "oklch(15% 0.0695 178.64)",
+          "oklch(26% 0.0695 178.64)",
+          "oklch(38% 0.0695 178.64)",
+          "oklch(50% 0.0695 178.64)",
+          "oklch(62% 0.0695 178.64)",
+          "oklch(74% 0.0695 178.64)",
+          "oklch(86% 0.0695 178.64)",
+          "oklch(95% 0.0695 178.64)"
+        ]
+      },
+      "green-light": {
+        "role": "neutral",
+        "displayName": "Verde claro",
+        "tonalRamp": [
+          "oklch(15% 0.0209 134.09)",
+          "oklch(26% 0.0209 134.09)",
+          "oklch(38% 0.0209 134.09)",
+          "oklch(50% 0.0209 134.09)",
+          "oklch(62% 0.0209 134.09)",
+          "oklch(74% 0.0209 134.09)",
+          "oklch(86% 0.0209 134.09)",
+          "oklch(95% 0.0209 134.09)"
         ]
       },
       "sand": {
         "role": "neutral",
         "displayName": "Arena",
         "tonalRamp": [
-          "oklch(15% 0.05 80)",
-          "oklch(26% 0.05 80)",
-          "oklch(38% 0.05 80)",
-          "oklch(50% 0.05 80)",
-          "oklch(62% 0.05 80)",
-          "oklch(74% 0.05 80)",
-          "oklch(86% 0.05 80)",
-          "oklch(95% 0.05 80)"
+          "oklch(15% 0.0768 82.75)",
+          "oklch(26% 0.0768 82.75)",
+          "oklch(38% 0.0768 82.75)",
+          "oklch(50% 0.0768 82.75)",
+          "oklch(62% 0.0768 82.75)",
+          "oklch(74% 0.0768 82.75)",
+          "oklch(86% 0.0768 82.75)",
+          "oklch(95% 0.0768 82.75)"
         ]
       },
       "line": {
         "role": "neutral",
-        "displayName": "Línea gris verdosa",
+        "displayName": "Línea",
         "tonalRamp": [
-          "oklch(15% 0.015 135)",
-          "oklch(26% 0.015 135)",
-          "oklch(38% 0.015 135)",
-          "oklch(50% 0.015 135)",
-          "oklch(62% 0.015 135)",
-          "oklch(74% 0.015 135)",
-          "oklch(86% 0.015 135)",
-          "oklch(95% 0.015 135)"
+          "oklch(15% 0.0255 106.91)",
+          "oklch(26% 0.0255 106.91)",
+          "oklch(38% 0.0255 106.91)",
+          "oklch(50% 0.0255 106.91)",
+          "oklch(62% 0.0255 106.91)",
+          "oklch(74% 0.0255 106.91)",
+          "oklch(86% 0.0255 106.91)",
+          "oklch(95% 0.0255 106.91)"
         ]
       },
       "white": {
         "role": "neutral",
         "displayName": "Blanco cálido",
         "tonalRamp": [
-          "oklch(15% 0.004 95)",
-          "oklch(26% 0.004 95)",
-          "oklch(38% 0.004 95)",
-          "oklch(50% 0.004 95)",
-          "oklch(62% 0.004 95)",
-          "oklch(74% 0.004 95)",
-          "oklch(86% 0.004 95)",
-          "oklch(95% 0.004 95)"
+          "oklch(15% 0.0095 93.57)",
+          "oklch(26% 0.0095 93.57)",
+          "oklch(38% 0.0095 93.57)",
+          "oklch(50% 0.0095 93.57)",
+          "oklch(62% 0.0095 93.57)",
+          "oklch(74% 0.0095 93.57)",
+          "oklch(86% 0.0095 93.57)",
+          "oklch(95% 0.0095 93.57)"
         ]
       },
       "red": {
         "role": "semantic",
         "displayName": "Rojo terroso",
         "tonalRamp": [
-          "oklch(15% 0.1 32)",
-          "oklch(26% 0.1 32)",
-          "oklch(38% 0.1 32)",
-          "oklch(50% 0.1 32)",
-          "oklch(62% 0.1 32)",
-          "oklch(74% 0.1 32)",
-          "oklch(86% 0.1 32)",
-          "oklch(95% 0.1 32)"
+          "oklch(15% 0.1232 29.30)",
+          "oklch(26% 0.1232 29.30)",
+          "oklch(38% 0.1232 29.30)",
+          "oklch(50% 0.1232 29.30)",
+          "oklch(62% 0.1232 29.30)",
+          "oklch(74% 0.1232 29.30)",
+          "oklch(86% 0.1232 29.30)",
+          "oklch(95% 0.1232 29.30)"
         ]
       },
       "yellow": {
         "role": "semantic",
         "displayName": "Ocre",
         "tonalRamp": [
-          "oklch(15% 0.09 75)",
-          "oklch(26% 0.09 75)",
-          "oklch(38% 0.09 75)",
-          "oklch(50% 0.09 75)",
-          "oklch(62% 0.09 75)",
-          "oklch(74% 0.09 75)",
-          "oklch(86% 0.09 75)",
-          "oklch(95% 0.09 75)"
+          "oklch(15% 0.0916 65.12)",
+          "oklch(26% 0.0916 65.12)",
+          "oklch(38% 0.0916 65.12)",
+          "oklch(50% 0.0916 65.12)",
+          "oklch(62% 0.0916 65.12)",
+          "oklch(74% 0.0916 65.12)",
+          "oklch(86% 0.0916 65.12)",
+          "oklch(95% 0.0916 65.12)"
         ]
+      },
+      "sea-horizon": {
+        "role": "decorative",
+        "displayName": "Mar: horizonte",
+        "tonalRamp": [
+          "oklch(15% 0.0862 201.20)",
+          "oklch(26% 0.0862 201.20)",
+          "oklch(38% 0.0862 201.20)",
+          "oklch(50% 0.0862 201.20)",
+          "oklch(62% 0.0862 201.20)",
+          "oklch(74% 0.0862 201.20)",
+          "oklch(86% 0.0862 201.20)",
+          "oklch(95% 0.0862 201.20)"
+        ]
+      },
+      "sea-middle": {
+        "role": "decorative",
+        "displayName": "Mar: medio",
+        "tonalRamp": [
+          "oklch(15% 0.0797 188.31)",
+          "oklch(26% 0.0797 188.31)",
+          "oklch(38% 0.0797 188.31)",
+          "oklch(50% 0.0797 188.31)",
+          "oklch(62% 0.0797 188.31)",
+          "oklch(74% 0.0797 188.31)",
+          "oklch(86% 0.0797 188.31)",
+          "oklch(95% 0.0797 188.31)"
+        ]
+      },
+      "sea-shore": {
+        "role": "decorative",
+        "displayName": "Mar: costa",
+        "tonalRamp": [
+          "oklch(15% 0.0454 159.46)",
+          "oklch(26% 0.0454 159.46)",
+          "oklch(38% 0.0454 159.46)",
+          "oklch(50% 0.0454 159.46)",
+          "oklch(62% 0.0454 159.46)",
+          "oklch(74% 0.0454 159.46)",
+          "oklch(86% 0.0454 159.46)",
+          "oklch(95% 0.0454 159.46)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Portada Fraunces",
+        "purpose": "Título de playa; normal y cursiva de peso 600, servido desde el proyecto."
+      },
+      "headline": {
+        "displayName": "Encabezados Fraunces",
+        "purpose": "Secciones y destinos; tamaños locales y responsive descritos en DESIGN.md."
       }
     },
     "shadows": [
       {
         "name": "toast",
-        "value": "0 6px 22px #17373726",
-        "purpose": "Aviso flotante únicamente."
+        "value": "0 8px 28px #193c3b30",
+        "purpose": "Única sombra habitual, reservada al aviso flotante."
+      }
+    ],
+    "motion": [
+      {
+        "name": "scene-progress",
+        "value": "t = clamp(scrollY / max(1, scrollHeight - innerHeight), 0, 1)",
+        "purpose": "Scroll pasivo y requestAnimationFrame; una actualización por frame, reversible."
+      },
+      {
+        "name": "scene-variables",
+        "value": "--dusk=t; --sun-drop=t*330px; --stars=max(0,(t-.65)/.35); --reflection=1-t*.45",
+        "purpose": "Cielo de atardecer, descenso solar, aparición de estrellas y reflejo."
+      },
+      {
+        "name": "sea-interpolation",
+        "value": "--sea-horizon: #3d999f → #635c7b; --sea-middle: #69b9b2 → #a98192; --sea-shore: #b4d6c2 → #e1b09b",
+        "purpose": "Interpolación lineal por canal RGB ligada a t; valores iniciales en frontmatter."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "t = 0.24; scroll-behavior:auto; transition:none; animation:none",
+        "purpose": "Escena estática y supresión del movimiento según la preferencia del sistema."
       }
     ],
     "breakpoints": [
       {
+        "name": "wide",
+        "value": "1600px"
+      },
+      {
         "name": "container",
         "value": "1240px"
+      },
+      {
+        "name": "compact",
+        "value": "900px"
       },
       {
         "name": "mobile",
@@ -168,78 +250,80 @@
       "name": "Botón primario",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Acción principal de formulario.",
-      "html": "<button class=\"ds-button\">Publicar comentario</button>",
-      "css": ".ds-button{font:650 14px system-ui,sans-serif;min-height:44px;padding:11px 18px;border:0;border-radius:8px;background:var(--green,#155c54);color:var(--white,#fffefa);cursor:pointer}.ds-button:hover{background:#0f4842}.ds-button:focus-visible{outline:3px solid #ab620e;outline-offset:4px}.ds-button:disabled{opacity:.6;cursor:wait}"
+      "description": "Acceso a destinos y acción principal.",
+      "html": "<button class=\"ds-button\">Elegir destino</button>",
+      "css": ".ds-button{font:650 13px system-ui,sans-serif;min-height:44px;padding:12px 18px;border:0;border-radius:8px;background:var(--green,#1a5e52);color:var(--white,#fffdf6);cursor:pointer}.ds-button:hover{background:#12483e}.ds-button:focus-visible{outline:3px solid #a85223;outline-offset:4px}.ds-button:disabled{opacity:.48;cursor:default}"
     },
     {
       "name": "Botón secundario",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Acción auxiliar de comparación.",
-      "html": "<button class=\"ds-secondary\">Comparar opciones</button>",
-      "css": ".ds-secondary{font:650 14px system-ui,sans-serif;min-height:44px;padding:11px 18px;border:1px solid #9bb5aa;border-radius:8px;background:transparent;color:var(--green,#155c54);cursor:pointer}.ds-secondary:hover{background:var(--green-light,#e5eee9)}.ds-secondary:focus-visible{outline:3px solid #ab620e;outline-offset:4px}.ds-secondary:disabled{opacity:.6;cursor:wait}"
+      "description": "Comparación y acciones auxiliares.",
+      "html": "<button class=\"ds-secondary\">Comparar</button>",
+      "css": ".ds-secondary{font:650 13px system-ui,sans-serif;min-height:44px;padding:12px 18px;border:1px solid #8baba0;border-radius:8px;background:transparent;color:var(--green,#1a5e52);cursor:pointer}.ds-secondary:hover{background:var(--green-light,#e5eee0)}.ds-secondary:focus-visible{outline:3px solid #a85223;outline-offset:4px}.ds-secondary:disabled{opacity:.48;cursor:default}"
     },
     {
       "name": "Campo de nombre",
       "kind": "input",
       "refersTo": "field",
-      "description": "Campo con etiqueta visible.",
+      "description": "Campo con etiqueta visible e identidad por confianza.",
       "html": "<label class=\"ds-field\">Agregar mi nombre<input placeholder=\"Tu nombre\" autocomplete=\"given-name\"></label>",
-      "css": ".ds-field{display:grid;gap:7px;font:600 14px system-ui,sans-serif;color:var(--ink,#173737)}.ds-field input{font:400 14px system-ui,sans-serif;padding:11px 12px;border:1px solid #aabbb3;border-radius:8px;background:var(--white,#fffefa);color:var(--ink,#173737);min-height:44px;caret-color:var(--green,#155c54)}.ds-field input::placeholder{color:#62736d;opacity:1}.ds-field input:focus-visible{outline:3px solid #ab620e;outline-offset:4px}"
+      "css": ".ds-field{display:grid;gap:7px;font:600 13px system-ui,sans-serif;color:var(--ink,#183e3b)}.ds-field input{font:400 13px system-ui,sans-serif;min-height:44px;padding:11px 12px;border:1px solid #aabbb3;border-radius:8px;background:var(--white,#fffdf6);color:var(--ink,#183e3b);caret-color:var(--green,#1a5e52)}.ds-field input::placeholder{color:#62736d;opacity:1}.ds-field input:focus-visible{outline:3px solid #a85223;outline-offset:4px}"
     },
     {
       "name": "Navegación",
       "kind": "nav",
       "refersTo": "navigation",
-      "description": "Secciones con estado activo.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Secciones del viaje\"><a href=\"#propuestas\" aria-current=\"page\">Propuestas</a><a href=\"#grupo\">Cómo vamos</a><a href=\"#sugerencias\">Sugerencias</a></nav>",
-      "css": ".ds-nav{display:flex;gap:30px;overflow-x:auto;border-bottom:1px solid var(--line,#d7ddd5);font:14px system-ui,sans-serif}.ds-nav a{white-space:nowrap;padding:15px 0 17px;text-decoration:none;color:var(--muted,#536766);border-bottom:2px solid transparent}.ds-nav a[aria-current]{color:var(--green,#155c54);border-bottom-color:var(--green,#155c54);font-weight:700}.ds-nav a:hover{color:var(--green,#155c54)}.ds-nav a:focus-visible{outline:3px solid #ab620e;outline-offset:4px}"
+      "description": "Secciones en flujo con estado activo.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Secciones del viaje\"><a href=\"#propuestas\" aria-current=\"page\">Propuestas</a><a href=\"#grupo\">Cómo vamos</a><a href=\"#investigacion\">Investigación</a></nav>",
+      "css": ".ds-nav{display:flex;gap:30px;overflow-x:auto;font:13px system-ui,sans-serif}.ds-nav a{display:block;white-space:nowrap;padding:12px 0;color:var(--ink,#183e3b);text-decoration:none;border-bottom:2px solid transparent}.ds-nav a[aria-current]{border-bottom-color:var(--ink,#183e3b);font-weight:750}.ds-nav a:hover{text-decoration:underline}.ds-nav a:focus-visible{outline:3px solid #a85223;outline-offset:4px}"
     },
     {
-      "name": "Etiqueta de régimen",
-      "kind": "chip",
-      "refersTo": "regime",
-      "description": "Etiqueta informativa de comidas.",
-      "html": "<span class=\"ds-regime\">All-inclusive</span>",
-      "css": ".ds-regime{display:inline-block;font:650 13px system-ui,sans-serif;padding:6px 10px;border-radius:6px;background:var(--green-light,#e5eee9);color:var(--green,#155c54)}"
-    },
-    {
-      "name": "Panel contextual",
+      "name": "Tarjeta de propuesta",
       "kind": "card",
-      "refersTo": "identity-panel",
-      "description": "Superficie tonal para elegir participante.",
-      "html": "<section class=\"ds-panel\"><h2>¿Quién está participando?</h2><p>Elegí tu nombre. Es un grupo por confianza.</p></section>",
-      "css": ".ds-panel{background:var(--green-light,#e5eee9);color:var(--ink,#173737);padding:24px;border-radius:12px}.ds-panel h2{font:400 27px Georgia,serif;letter-spacing:-.025em;margin:0 0 8px}.ds-panel p{font:14px/1.65 system-ui,sans-serif;margin:0;max-width:720px}"
+      "refersTo": "proposal",
+      "description": "Destino, régimen y precio; muestra tipografía y superficie sin datos de oferta inventados.",
+      "html": "<article class=\"ds-proposal\"><h2>Destino</h2><p>Hotel · comidas · fechas</p><p class=\"ds-price\">USD —</p><p>Consulta de grupo o promoción publicada</p><a href=\"#investigacion\">Detalles ↗</a></article>",
+      "css": "@font-face{font-family:Fraunces;src:url(\"/fonts/fraunces.ttf\") format(\"truetype\");font-weight:600;font-style:normal;font-display:swap}.ds-proposal{padding:25px;background:var(--white,#fffdf6);color:var(--ink,#183e3b);border:1px solid var(--line,#dcdcc9);border-radius:14px;font:13px/1.6 system-ui,sans-serif}.ds-proposal h2{font:600 37px/1.12 Fraunces,Georgia,serif;letter-spacing:-.035em;margin:0}.ds-proposal p{margin:5px 0;color:var(--muted,#526660)}.ds-proposal .ds-price{font-size:29px;font-weight:700;letter-spacing:-.035em;font-variant-numeric:tabular-nums;color:var(--ink,#183e3b);margin:20px 0 0}.ds-proposal a{color:var(--green,#1a5e52);text-underline-offset:4px}.ds-proposal a:focus-visible{outline:3px solid #a85223;outline-offset:4px}"
     },
     {
-      "name": "Voto seleccionado",
+      "name": "Votos",
       "kind": "button",
       "refersTo": "vote",
-      "description": "Opinión explícita con selección accesible.",
-      "html": "<button class=\"ds-vote\" aria-pressed=\"true\">Me sumo</button>",
-      "css": ".ds-vote{display:inline-flex;align-items:center;min-height:44px;padding:9px 13px;font:14px system-ui,sans-serif;border:1px solid var(--line,#d7ddd5);border-radius:8px;background:var(--white,#fffefa);color:var(--muted,#536766);cursor:pointer}.ds-vote[aria-pressed=true]{background:var(--green,#155c54);border-color:var(--green,#155c54);color:white;font-weight:650}.ds-vote:hover{border-color:#6d9585}.ds-vote:focus-visible{outline:3px solid #ab620e;outline-offset:4px}"
+      "description": "Tres opiniones con selección accesible y color semántico.",
+      "html": "<div class=\"ds-votes\" role=\"group\" aria-label=\"Tu opinión\"><button class=\"ds-vote ds-yes\" aria-pressed=\"true\">Me sumo</button><button class=\"ds-vote ds-maybe\" aria-pressed=\"false\">Puede ser</button><button class=\"ds-vote ds-no\" aria-pressed=\"false\">No me cierra</button></div>",
+      "css": ".ds-votes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.ds-vote{font:650 11px system-ui,sans-serif;min-height:44px;padding:10px 4px;border:1px solid #c7d2c3;border-radius:8px;background:transparent;color:var(--ink,#183e3b);cursor:pointer}.ds-vote:hover{background:#eef2e5}.ds-yes[aria-pressed=true]{background:#d9ead9;border-color:#54865b;color:#204f2c}.ds-maybe[aria-pressed=true]{background:#f6e5bd;border-color:#bd964c;color:#674715}.ds-no[aria-pressed=true]{background:#f7e0d9;border-color:#bd8271;color:#813e32}.ds-vote:focus-visible{outline:3px solid #a85223;outline-offset:4px}.ds-vote:disabled{opacity:.48;cursor:default}"
+    },
+    {
+      "name": "Favorita",
+      "kind": "button",
+      "refersTo": "favorite",
+      "description": "Estrella de la única favorita por participante.",
+      "html": "<button class=\"ds-favorite\" aria-label=\"Elegir favorita\" aria-pressed=\"false\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z\"/></svg></button>",
+      "css": ".ds-favorite{padding:10px;min-width:44px;min-height:44px;border:1px solid var(--line,#dcdcc9);border-radius:8px;background:transparent;color:var(--green,#1a5e52);cursor:pointer}.ds-favorite svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.ds-favorite:hover{background:#f6efd9}.ds-favorite[aria-pressed=true]{background:#f6deb1;border-color:#ba8d46;color:#765117}.ds-favorite[aria-pressed=true] svg{fill:#b57b2c;stroke:#765117}.ds-favorite:focus-visible{outline:3px solid #a85223;outline-offset:4px}.ds-favorite:disabled{opacity:.48;cursor:default}"
     }
   ],
   "narrative": {
-    "overview": "La interfaz construida conserva el fondo de papel claro, la tinta oscura y el verde petróleo definidos en el brief. La tipografía y los datos llevan la lectura; Georgia distingue los encabezados editoriales de los controles de sistema. El título es descriptivo y provisional, sin identidad de marca inventada.\n\nLas superficies son planas y los separadores organizan la información. Las fotografías sólo se incorporan cuando existe una fuente aprobada; la versión actual utiliza capturas de cotizaciones en la investigación y no fotografías decorativas en el listado.",
+    "overview": "La dirección confirmada es una playa SVG continua: cielo abierto, sol, mar, arena y palmera. El desplazamiento transforma el día en atardecer; el paisaje ocupa el fondo completo y la portada lo deja respirar. Es una elección visual del usuario, sin marca nueva: el título descriptivo provisional sigue siendo «Vacaciones · abril 2027».\n\nFraunces aporta títulos amplios y una cursiva en «playa». Las superficies opacas de crema protegen los datos durante todo el recorrido. Las tarjetas concentran destino, precio, fechas y voto; Investigación reúne condiciones, fuentes e informe histórico. La identidad por confianza, el máximo de cinco participantes y los votos compartidos en D1 conservan su funcionamiento.",
     "keyCharacteristics": [
-      "Tipografía y datos antes que decoración.",
-      "Contraste de papel, tinta y verde petróleo.",
-      "Estados expresados con texto además del color.",
-      "Controles de tamaño táctil y foco visible."
+      "Paisaje SVG continuo con atardecer reversible al desplazarse.",
+      "Títulos Fraunces y controles de sistema.",
+      "Tarjetas breves y opacas sobre el paisaje.",
+      "Voto, favorita y evidencia expresados con texto y estado accesible."
     ],
     "rules": [],
     "dos": [
-      "**Do** mantener la jerarquía de encabezados, datos y controles existente.",
-      "**Do** acompañar estados de selección y evidencia con texto.",
-      "**Do** conservar foco visible y controles táctiles de al menos 44px.",
-      "**Do** respetar la preferencia de movimiento reducido."
+      "**Do** conservar el paisaje continuo y el cambio de luz ligado al desplazamiento natural.",
+      "**Do** mantener opacas las superficies que contienen datos.",
+      "**Do** conservar la distinción entre consulta para cinco y promoción base doble.",
+      "**Do** acompañar selección, revisión de votos y errores con texto y foco visible.",
+      "**Do** respetar la escena estática para movimiento reducido."
     ],
     "donts": [
-      "**Don't** sustituir el título provisional por una marca inventada.",
-      "**Don't** convertir las filas de propuestas en tarjetas decorativas con sombras.",
-      "**Don't** incorporar fotografías sin una fuente aprobada."
+      "**Don't** inventar una marca o restaurar el nombre rechazado.",
+      "**Don't** devolver condiciones extensas a las tarjetas; mantenerlas en Investigación.",
+      "**Don't** añadir sombras a las tarjetas ni animaciones de entrada que oculten contenido.",
+      "**Don't** convertir la selección de nombre por confianza en una afirmación de autenticación."
     ]
   }
 }

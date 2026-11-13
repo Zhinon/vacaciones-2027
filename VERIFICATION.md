@@ -13,3 +13,13 @@ Publicado en https://vacaciones-2027.aranda-ariel-norberto.workers.dev el 13 de 
 Verificación HTTP con solicitudes independientes: seis propuestas disponibles; creación temporal de participante; voto, favorita y comentario persistidos; clave del organizador aceptada sin modificar cotizaciones. Se eliminaron únicamente los registros de prueba creados por esta comprobación. También se abrió la URL en navegador y se verificó el tablero cargado.
 
 El selector de nombres es deliberadamente de confianza y no verifica identidad. Las cotizaciones son evidencia histórica; deben confirmarse antes de reservar.
+
+## Rediseño de playa · 13 de noviembre de 2026
+
+- Sintaxis de cliente y servidor correcta; empaquetado de Worker y doce archivos estáticos correcto.
+- Navegador en escritorio (1265 px) y móvil (iframe de 390 px): portada, propuestas, comparación e Investigación. Verificados ingreso por nombre, voto, favorita y publicación de comentario con la base local. Datos de prueba retirados.
+- Scroll hasta el final: avance de escena 1.000 y descenso del sol 330 px; capturas de día y atardecer verificadas. Consola sin errores ni advertencias en la sesión final.
+- Revisión visual independiente: disposición `ship` en el alcance de las seis capturas y del código revisado. El detector automático no se pudo ejecutar por permisos del launcher.
+- El servidor, las migraciones y los datos remotos no se modificaron como parte del rediseño.
+
+Nueva versión publicada: `42859ab7-b236-4987-ae08-a323359ad17c`. Comprobados HTML, cliente y fuente públicos; propuestas remotas idénticas a las anteriores. Vista pública a 855 px revisada sin errores de consola. Revisión adicional `ship` para esa primera pantalla.

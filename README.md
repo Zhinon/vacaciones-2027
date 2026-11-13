@@ -1,5 +1,7 @@
 # Vacaciones · abril 2027
 
+Interfaz con playa SVG que cambia de día a atardecer al hacer scroll. Propuestas breves; detalles y fuentes en Investigación. Escena estática con movimiento reducido.
+
 Tablero para cinco adultos: propuestas de viaje, opiniones, una favorita por persona, comentarios, comparación, sugerencias e investigación original. Título provisional, sin marca inventada.
 
 ## Sitio publicado
@@ -62,7 +64,7 @@ La URL `workers.dev` que devuelve el deploy es el enlace común para compartir. 
 
 ## Datos y alcance
 
-La investigación es del 13 de noviembre de 2026. Sólo Marinas y Pratagy tienen una consulta documentada para cinco; las otras cuatro opciones son promociones mensuales en base doble, con fechas y quinta plaza pendientes. Las fuentes y las capturas están dentro del sitio. No se garantiza precio ni disponibilidad, no se compran vuelos y no hay actualización automática.
+La investigación es del 13 de noviembre de 2026. Sólo Marinas y Pratagy tienen una consulta documentada para cinco; las otras cuatro opciones son promociones mensuales en base doble, con fechas y quinta plaza pendientes. Las fuentes, condiciones vigentes y capturas están en Investigación; los comentarios siguen junto a cada propuesta. No se garantiza precio ni disponibilidad, no se compran vuelos y no hay actualización automática.
 
 Las capturas son evidencia histórica: no cambian al editar una propuesta. La fecha del informe también es histórica. En una actualización, revisar inclusiones, equipaje y pendientes junto con el precio; la pantalla de edición actual permite cambiar precio, fechas, hotel, salida, noches, fuente y nota.
 
@@ -71,3 +73,7 @@ No se recopilan documentos, correos ni datos de pago. Se guardan nombre elegido,
 ## GitHub
 
 Publicar exclusivamente bajo `Zhinon/vacaciones-2027`, como repositorio privado inicialmente. No usar la cuenta laboral activa ni cambiar la configuración global de autenticación. Se ignoran claves, estado local, dependencias y capturas de pruebas.
+
+## Tipografía
+
+Fraunces se sirve desde `public/fonts/`, sin dependencias de CDN en el navegador. Fuente original: Google Fonts / Undercase Type. Licencia SIL Open Font License en `public/fonts/OFL.txt`. La playa es un SVG original incluido en el HTML.
