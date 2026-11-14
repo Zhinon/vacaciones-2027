@@ -13,11 +13,11 @@ async function body(request){if(!request.headers.get('Content-Type')?.startsWith
 async function member(db,id){if(typeof id!=='string'||!(await db.prepare('SELECT id FROM participants WHERE id=?').bind(id).first()))throw new ApiError(400,'Elegí tu nombre antes de participar.');}
 async function proposal(db,id,revision){const p=await db.prepare('SELECT * FROM proposals WHERE id=?').bind(typeof id==='string'?id:'').first();if(!p)throw new ApiError(404,'Esta propuesta ya no está disponible.');if(revision!==p.revision)throw new ApiError(409,'La propuesta cambió. Actualizá la página y revisá tu voto.');return p;}
 async function admin(request,env){const key=request.headers.get('Authorization')?.replace(/^Bearer /,'')||'';if(!env.ADMIN_KEY)throw new ApiError(503,'La edición no está habilitada: falta configurar la clave del organizador.');const hash=async x=>new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(x)));const [a,b]=await Promise.all([hash(key),hash(env.ADMIN_KEY)]);if(a.some((v,i)=>v!==b[i]))throw new ApiError(403,'La clave del organizador no es correcta.');}
-async function state(db){const [p,m,v,f,c,s]=await db.batch(['SELECT * FROM proposals ORDER BY rowid','SELECT id,name FROM participants ORDER BY created_at,id','SELECT * FROM votes','SELECT * FROM favorites','SELECT * FROM comments ORDER BY created_at,id','SELECT * FROM suggestions ORDER BY created_at DESC,id'].map(sql=>db.prepare(sql)));return {proposals:p.results.map(r=>({...JSON.parse(r.data),revision:r.revision})),participants:m.results,votes:v.results,favorites:f.results,comments:c.results,suggestions:s.results};}
+async function state(db,includeFlights=false){const [p,m,v,f,c,s]=await db.batch(['SELECT * FROM proposals ORDER BY rowid','SELECT id,name FROM participants ORDER BY created_at,id','SELECT * FROM votes','SELECT * FROM favorites','SELECT * FROM comments ORDER BY created_at,id','SELECT * FROM suggestions ORDER BY created_at DESC,id'].map(sql=>db.prepare(sql)));return {proposals:p.results.map(r=>({...JSON.parse(r.data),revision:r.revision})).filter(p=>includeFlights||p.type!=='flight'),participants:m.results,votes:v.results,favorites:f.results,comments:c.results,suggestions:s.results};}
 async function api(request,env,path){
   if(!env.DB)throw new ApiError(503,'La base compartida no está conectada. Intentá de nuevo más tarde.');
   const db=env.DB;
-  if(request.method==='GET'&&path==='/api/state')return json(await state(db));
+  if(request.method==='GET'&&path==='/api/state')return json(await state(db,new URL(request.url).searchParams.get('include')==='flights'));
   if(!['POST','PUT','DELETE'].includes(request.method))throw new ApiError(405,'Esta acción no está disponible.');
   const origin=request.headers.get('Origin');
   if((origin&&origin!==new URL(request.url).origin)||request.headers.get('Sec-Fetch-Site')==='cross-site')throw new ApiError(403,'Abrí el tablero para realizar esta acción.');
@@ -59,13 +59,13 @@ async function api(request,env,path){
     const title=text(b.title,100,'Propuesta'),link=url(typeof b.url==='string'?b.url:''),note=text(b.note,1200,'Detalle'),id=crypto.randomUUID();await db.prepare('INSERT INTO suggestions(id,participant_id,title,url,note) VALUES(?,?,?,?,?)').bind(id,b.participantId,title,link,note).run();return json({id},201);
   }
   if(path==='/api/admin/proposals'&&request.method==='PUT'){
-    await admin(request,env);const row=await proposal(db,b.id,b.revision),p=JSON.parse(row.data);
+    await admin(request,env);const row=await proposal(db,b.id,b.revision),p=JSON.parse(row.data);if(p.type==='flight'&&((b.dates!==undefined&&b.dates!==p.dates)||(b.nights!==undefined&&b.nights!==p.nights)))throw new ApiError(400,'Cambiar fechas de vuelo requiere una nueva cotización para cinco.');
     for(const field of ['hotel','dates','origin','note'])if(b[field]!==undefined)p[field]=text(b[field],field==='note'?1200:150,field);
     if(b.source!==undefined)p.source=url(b.source);
-    if(!Number.isFinite(b.price)||b.price<=0||b.price>1000000)throw new ApiError(400,'Indicá un precio válido en USD.');p.price=b.price;
+    if(!Number.isFinite(b.price)||b.price<=0||b.price>((p.currency||'USD')==='ARS'?100000000:1000000))throw new ApiError(400,`Indicá un precio válido en ${p.currency||'USD'}.`);p.price=b.price;
     if(!Number.isInteger(b.nights)||b.nights<1||b.nights>13)throw new ApiError(400,'La estadía debe tener entre 1 y 13 noches.');p.nights=b.nights;
-    if(!['group','published','estimate'].includes(b.evidence))throw new ApiError(400,'Indicá el tipo de precio.');p.evidence=b.evidence;
-    p.groupTotal=null;if(b.evidence==='group'){if(!Number.isFinite(b.groupTotal)||b.groupTotal<=0||Math.abs(b.groupTotal/5-b.price)>0.02)throw new ApiError(400,'El total del grupo debe coincidir con el precio por persona × 5.');p.groupTotal=b.groupTotal;}
+    if(!['group','search','published','estimate'].includes(b.evidence))throw new ApiError(400,'Indicá el tipo de precio.');p.evidence=b.evidence;
+    p.groupTotal=null;if(b.evidence==='group'||b.evidence==='search'){if(!Number.isFinite(b.groupTotal)||b.groupTotal<=0||Math.abs(b.groupTotal/5-b.price)>((p.currency||'USD')==='ARS'?1.01:0.02))throw new ApiError(400,'El total del grupo debe coincidir con el precio por persona × 5, salvo redondeo.');p.groupTotal=b.groupTotal;}
     p.checkedAt=new Date().toISOString().slice(0,10);
     const r=await db.prepare('UPDATE proposals SET data=?,revision=revision+1 WHERE id=? AND revision=?').bind(JSON.stringify(p),b.id,b.revision).run();if(!r.meta.changes)throw new ApiError(409,'Otra edición cambió la propuesta. Actualizá antes de guardar.');return json({ok:true});
   }

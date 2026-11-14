@@ -25,3 +25,13 @@ El selector de nombres es deliberadamente de confianza y no verifica identidad. 
 Nueva versión publicada: `42859ab7-b236-4987-ae08-a323359ad17c`. Comprobados HTML, cliente y fuente públicos; propuestas remotas idénticas a las anteriores. Vista pública a 855 px revisada sin errores de consola. Revisión adicional `ship` para esa primera pantalla.
 
 Selector de participantes: migración 0003 probada dos veces sin duplicados y aplicada a D1 remoto. Publicados los cinco nombres fijos. Navegador: selección de Charles y recarga conservan la identidad; luego se restauró el selector vacío. Sintaxis de cliente/servidor correcta. Versión publicada `cb4d61c7-51be-49c7-8ffd-74783fb8683c`.
+
+## Vuelos separados · 14/11/2026
+
+Investigación en navegador: 18 rutas y ocho combinaciones de fechas adicionales con URL de cinco adultos, indicador de pasajeros y total grupal. Se verificó el selector de cinco adultos/cero menores, y Natal 3–13/4 se abrió en JetSMART seleccionando Basic en ambos tramos hasta total con tasas, sin continuar a compra.
+
+Tres pruebas de integración pasan: las existentes y una nueva que aplica migración 0004, conserva paquetes y votos, valida 11 vuelos/moneda/fecha/duración, admite los importes ARS mayores al antiguo límite USD y rechaza totales incoherentes y cambios de fechas sin recotizar. Los clientes antiguos siguen recibiendo seis paquetes para no mostrar ARS como USD.
+
+Navegador local: filtro Mendoza, comparación agencia/aerolínea en ARS, informe nuevo y original de paquetes, vista móvil 390px. Los vuelos se muestran sin alojamiento y con llegadas al día siguiente.
+
+Publicado y comprobado en producción: versión `6dfd9cf9-a63e-48bf-9d7a-933e7e20475e`, migración 0004 aplicada. API nueva devuelve 11 vuelos + 6 paquetes; API anterior conserva seis paquetes. Las propuestas y los participantes existentes permanecen iguales. La matriz pública tiene 26 consultas únicas. Navegador público sin errores ni advertencias en la comprobación final.

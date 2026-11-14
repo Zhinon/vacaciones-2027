@@ -52,3 +52,20 @@ test('rejects cross-origin writes and invalid input',async()=>{
   assert.equal((await request('participants','POST',{name:'a'.repeat(41)})).status,400);
   assert.equal((await request('state','DELETE',{})).status,404);
 });
+test('flight migration preserves packages and validates ARS group totals and dates',async()=>{
+  const db=await mf.getD1Database('DB');
+  const before=(await request('state?include=flights')).data;
+  await db.exec(await readFile(new URL('../migrations/0004_flight_proposals.sql',import.meta.url),'utf8'));
+  const state=(await request('state?include=flights')).data;
+  assert.equal(state.proposals.length,17);assert.equal((await request('state')).data.proposals.length,6);
+  assert.deepEqual(state.votes,before.votes);
+  assert.deepEqual(state.proposals.filter(p=>p.type!=='flight'),before.proposals);
+  const flights=state.proposals.filter(p=>p.type==='flight');assert.equal(flights.length,11);
+  for(const f of flights){assert.equal(f.currency,'ARS');assert.ok(Math.abs(f.groupTotal/5-f.price)<=1.01);assert.ok(f.tripDays<=14);assert.match(f.departureDate,/^2027-04-(0[1-9]|1[0-5])$/);}
+  const f=flights.find(p=>p.id==='vuelo-aua-mdz');
+  const edit={id:f.id,revision:f.revision,price:f.price,groupTotal:f.groupTotal,nights:f.nights,dates:f.dates,evidence:'search'};
+  assert.equal((await request('admin/proposals','PUT',{...edit,dates:'Otras fechas'},{Authorization:'Bearer '+key})).status,400);
+  assert.equal((await request('admin/proposals','PUT',{...edit,groupTotal:6000000},{Authorization:'Bearer '+key})).status,400);
+  assert.equal((await request('admin/proposals','PUT',edit,{Authorization:'Bearer '+key})).status,200);
+  const updated=(await request('state?include=flights')).data.proposals.find(p=>p.id===f.id);assert.equal(updated.currency,'ARS');assert.equal(updated.revision,2);
+});

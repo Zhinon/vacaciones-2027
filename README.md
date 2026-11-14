@@ -57,10 +57,10 @@ La URL `workers.dev` que devuelve el deploy es el enlace común para compartir. 
 - Seleccionar un nombre es un mecanismo de confianza, no autenticación. Cualquiera con el enlace puede actuar como cualquier participante: fue la modalidad elegida para el grupo.
 - Una favorita implica “Me sumo”. Cambiar la opinión a “Puede ser” o “No me cierra” elimina esa favorita.
 - “Cómo vamos” ordena por aceptación, luego por menos rechazos y finalmente por favoritas. No considera una respuesta pendiente como rechazo.
-- Se pueden comparar dos o tres propuestas. No se convierten monedas: las seis opciones iniciales están expresadas en USD.
+- Se pueden comparar dos o tres propuestas. No se convierten monedas: los paquetes están en USD y los vuelos separados en ARS. El selector separa ambos alcances y conserva la moneda del proveedor.
 - Los datos se refrescan cada 20 segundos con la pestaña visible y al recuperar el foco. Los cambios se confirman sólo si el servidor los guardó. No hay guardado simulado ni sincronización offline.
 - Cambiar una propuesta desde “Editar propuestas” incrementa la revisión: los votos viejos se conservan, pero dejan de contar hasta que se revisen. La edición requiere `ADMIN_KEY`.
-- Una sugerencia no se convierte automáticamente en oferta: el organizador debe revisarla. La primera versión permite editar las seis propuestas iniciales; añadir propuestas completas se hace mediante migración.
+- Una sugerencia no se convierte automáticamente en oferta: el organizador debe revisarla. La primera versión permite editar las propuestas cargadas; añadir propuestas completas se hace mediante migración.
 
 ## Datos y alcance
 
@@ -77,3 +77,13 @@ Publicar exclusivamente bajo `Zhinon/vacaciones-2027`, como repositorio privado 
 ## Tipografía
 
 Fraunces se sirve desde `public/fonts/`, sin dependencias de CDN en el navegador. Fuente original: Google Fonts / Undercase Type. Licencia SIL Open Font License en `public/fonts/OFL.txt`. La playa es un SVG original incluido en el HTML.
+
+## Vuelos para cinco · 14/11/2026
+
+Once propuestas de sólo vuelo en `#vuelos`, separadas de los seis paquetes. El filtro permite Mendoza, Buenos Aires y Santiago. La investigación conserva 26 consultas distintas de 18 rutas en `public/vuelos-abril-2027.md` y su registro estructurado en `public/vuelos-cotizaciones.json`. El informe original de paquetes se mantiene.
+
+`evidence: search` significa búsqueda con cinco adultos y total de grupo leído en el comparador; no es garantía de inventario ni validación final de agencia. La cotización directa de JetSMART Natal sí se contrastó seleccionando ambos tramos Basic para cinco en la aerolínea antes de continuar a equipaje/pago. Las tasas de redondeo de ARS pueden producir menos de un peso de diferencia por persona respecto al promedio del total.
+
+El servidor conserva la moneda de cada propuesta. Editar fechas de vuelo requiere recotizar: la pantalla las muestra como sólo lectura y el servidor rechaza cambios de fechas/duración desde esa edición. Las ediciones de precio siguen incrementando revisión.
+
+Compatibilidad: `/api/state` conserva sólo paquetes para clientes anteriores, que asumían USD. El cliente nuevo consulta `/api/state?include=flights`. La migración 0004 sólo agrega propuestas, sin cambiar paquetes ni opiniones.

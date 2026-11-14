@@ -25,3 +25,6 @@ El usuario reemplaza el diseño anterior: playa en SVG con atardecer progresivo 
 
 ## Participantes definidos
 Selector permanente «¿Quién sos?» con Vane, Ro, Charles, Rubio y Chino, en ese orden. Sin alta manual de nombres; se recuerda la identidad elegida en el navegador.
+
+## Vuelos separados
+Relevamiento del 14/11/2026: 26 consultas con cinco adultos en 18 rutas, 11 propuestas seleccionadas. Pestañas Paquetes / Solo vuelos, con filtro por origen. ARS para vuelos, USD para paquetes, sin conversión implícita ni sumar hotel inventado. Distinguir evidencia de búsqueda para cinco (`search`) y cotización directa (`group`). Llegadas +1 y duración real hasta 14 días visibles; fuentes y análisis completo en Investigación.

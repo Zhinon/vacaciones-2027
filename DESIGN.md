@@ -166,6 +166,10 @@ Votos con `aria-pressed`, texto e icono. Seleccionados: sí #d9ead9/#54865b/#204
 ### Focus y avisos
 Contorno de foco #a85223 de 3px, separado 4px, en botones, enlaces, campos y summary. El toast tiene role=status y aria-live=polite; conexión y errores tienen texto visible. Los controles principales conservan altura mínima de 44px; la acción Comparar usa 40px en móvil según el CSS actual.
 
+
+### Vuelos separados
+La navegación del panel incorpora Paquetes / Solo vuelos con recuento y el mismo lenguaje de pestañas subrayadas. Filtro de origen para vuelos; filtro de comidas para paquetes. Las tarjetas conservan el sistema existente y muestran moneda explícita, total para cinco, duración aérea y llegada +1 cuando corresponde. Condiciones y matriz completa se consultan en Investigación.
+
 ## Do's and Don'ts
 
 ### Do:
