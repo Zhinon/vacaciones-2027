@@ -193,3 +193,5 @@ En escritorio, pies al 3% del borde inferior; escena SVG anclada abajo (`xMidYMa
 En móvil, palmera SVG independiente, alta y angosta sobre el margen derecho; copa debajo de la navegación y tronco junto al borde, sin cruzar el título ni apoyarse en las cabezas. Se mantiene intacta la palmera de escritorio.
 
 Quitado el óvalo decorativo de la arena. Ambas pestañas tienen una descripción breve de inclusiones; barra de filtros sin borde superior para evitar separadores consecutivos.
+
+El SVG de Chino usa el mismo viewBox 420×940 que Vane: silueta visible desde y=98 hasta y=879 en ambos, para igualar exactamente altura y línea de pies en todos los tamaños.
