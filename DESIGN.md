@@ -194,4 +194,4 @@ En móvil, palmera SVG independiente, alta y angosta sobre el margen derecho; co
 
 Quitado el óvalo decorativo de la arena. Ambas pestañas tienen una descripción breve de inclusiones; barra de filtros sin borde superior para evitar separadores consecutivos.
 
-El SVG de Chino usa el mismo viewBox 420×940 que Vane: silueta visible desde y=98 hasta y=879 en ambos, para igualar exactamente altura y línea de pies en todos los tamaños.
+El SVG de Chino se reemplazó por el archivo corregido que aportó el usuario desde coleccion-personajes-elegida/01-hombre-saludando/personaje.svg. Se publica idéntico al original suministrado, conservando su viewBox, estilo y animación, sin la normalización previa.
