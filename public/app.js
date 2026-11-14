@@ -46,7 +46,7 @@ document.addEventListener('change',e=>{if(e.target.id==='flight-origin'){flightO
 document.addEventListener('click',async e=>{const b=e.target.closest('[data-action]');if(!b||b.matches('input'))return;const action=b.dataset.action,id=b.dataset.id,p=proposal(id);
   if(action==='explore')$('#destinos')?.scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'start'});
   if(action==='identity')focusIdentity();
-  if(action==='vote'&&needMember())await mutate('votes','PUT',{participantId,proposalId:id,value:b.dataset.value,revision:p.revision},'Tu opinión quedó guardada.');
+  if(action==='vote'&&needMember()){const mine=myVote(p),clear=mine?.revision===p.revision&&mine.value===b.dataset.value;await mutate('votes','PUT',{participantId,proposalId:id,value:clear?null:b.dataset.value,revision:p.revision},clear?'Quitaste tu voto.':'Tu opinión quedó guardada.');}
   if(action==='favorite'&&needMember())await mutate('favorite','PUT',{participantId,proposalId:myFavorite(p)?null:id,revision:p.revision},myFavorite(p)?'Quitaste tu favorita.':'Favorita guardada. También marcamos “Me sumo”.');
   if(action==='delete-comment'&&needMember())await mutate('comments','DELETE',{participantId,id},'Comentario eliminado.');
   if(action==='show-compare')go('comparar');

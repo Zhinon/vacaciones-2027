@@ -69,3 +69,28 @@ test('flight migration preserves packages and validates ARS group totals and dat
   assert.equal((await request('admin/proposals','PUT',edit,{Authorization:'Bearer '+key})).status,200);
   const updated=(await request('state?include=flights')).data.proposals.find(p=>p.id===f.id);assert.equal(updated.currency,'ARS');assert.equal(updated.revision,2);
 });
+
+test('clearing a vote is idempotent, scoped to its participant and proposal, and revision checked',async()=>{
+  const initial=(await request('state')).data;
+  const [a,b]=initial.participants;
+  const [p,q]=initial.proposals;
+  const vote=(person,proposal,value,revision=proposal.revision)=>request('votes','PUT',{participantId:person.id,proposalId:proposal.id,revision,value});
+  const favorite=proposal=>request('favorite','PUT',{participantId:a.id,proposalId:proposal.id,revision:proposal.revision});
+  await vote(b,p,'yes');await vote(a,q,'maybe');
+  for(const value of ['yes','maybe','no']){
+    assert.equal((await vote(a,p,value)).status,200);
+    assert.equal((await vote(a,p,null)).status,200);
+    assert.equal((await vote(a,p,null)).status,200);
+    const state=(await request('state')).data;
+    assert.ok(!state.votes.some(v=>v.participant_id===a.id&&v.proposal_id===p.id));
+    assert.ok(state.votes.some(v=>v.participant_id===b.id&&v.proposal_id===p.id&&v.value==='yes'));
+    assert.ok(state.votes.some(v=>v.participant_id===a.id&&v.proposal_id===q.id&&v.value==='maybe'));
+  }
+  await favorite(p);
+  assert.equal((await vote(a,p,null,p.revision-1)).status,409);
+  assert.ok((await request('state')).data.favorites.some(f=>f.participant_id===a.id&&f.proposal_id===p.id));
+  await vote(a,p,null);
+  assert.ok(!(await request('state')).data.favorites.some(f=>f.participant_id===a.id&&f.proposal_id===p.id));
+  await favorite(q);await vote(a,p,'yes');await vote(a,p,null);
+  assert.ok((await request('state')).data.favorites.some(f=>f.participant_id===a.id&&f.proposal_id===q.id));
+});

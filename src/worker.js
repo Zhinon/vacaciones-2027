@@ -31,6 +31,12 @@ async function api(request,env,path){
   }
   if(path==='/api/votes'&&request.method==='PUT'){
     await member(db,b.participantId);await proposal(db,b.proposalId,b.revision);
+    if(b.value===null){
+      await db.batch([
+        db.prepare('DELETE FROM votes WHERE participant_id=? AND proposal_id=? AND revision=? AND EXISTS(SELECT 1 FROM proposals WHERE id=? AND revision=?)').bind(b.participantId,b.proposalId,b.revision,b.proposalId,b.revision),
+        db.prepare('DELETE FROM favorites WHERE participant_id=? AND proposal_id=? AND revision=? AND EXISTS(SELECT 1 FROM proposals WHERE id=? AND revision=?)').bind(b.participantId,b.proposalId,b.revision,b.proposalId,b.revision)
+      ]);return json({ok:true});
+    }
     if(!['yes','maybe','no'].includes(b.value))throw new ApiError(400,'Elegí una de las tres respuestas.');
     const ops=[db.prepare("INSERT INTO votes(participant_id,proposal_id,value,revision) SELECT ?,?,?,? WHERE EXISTS(SELECT 1 FROM proposals WHERE id=? AND revision=?) ON CONFLICT(participant_id,proposal_id) DO UPDATE SET value=excluded.value,revision=excluded.revision,updated_at=strftime('%Y-%m-%dT%H:%M:%fZ','now')").bind(b.participantId,b.proposalId,b.value,b.revision,b.proposalId,b.revision)];
     if(b.value!=='yes')ops.push(db.prepare('DELETE FROM favorites WHERE participant_id=? AND proposal_id=?').bind(b.participantId,b.proposalId));
