@@ -190,4 +190,6 @@ Los cinco SVG aportados por el usuario forman parte del paisaje fijo de fondo, c
 
 En escritorio, pies al 3% del borde inferior; escena SVG anclada abajo (`xMidYMax slice`) para conservar la arena también en ventanas anchas. Móvil mantiene su posición al 8%.
 
-En móvil, palmera a media escala y anclada al extremo derecho de la arena para mostrar copa y tronco sin cruzar el título.
+En móvil, palmera SVG independiente, alta y angosta sobre el margen derecho; copa debajo de la navegación y tronco junto al borde, sin cruzar el título ni apoyarse en las cabezas. Se mantiene intacta la palmera de escritorio.
+
+Quitado el óvalo decorativo de la arena. Ambas pestañas tienen una descripción breve de inclusiones; barra de filtros sin borde superior para evitar separadores consecutivos.
