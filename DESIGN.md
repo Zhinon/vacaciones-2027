@@ -184,3 +184,6 @@ La navegación del panel incorpora Paquetes / Solo vuelos con recuento y el mism
 - **Don't** devolver condiciones extensas a las tarjetas; mantenerlas en Investigación.
 - **Don't** añadir sombras a las tarjetas ni animaciones de entrada que oculten contenido.
 - **Don't** convertir la selección de nombre por confianza en una afirmación de autenticación.
+
+## Personajes del grupo · 2026-11-14
+Portada con los cinco SVG aportados por el usuario, sobre la arena: Chino, Isma, Vane, Ro y Charly. Fila a la derecha en escritorio y debajo del texto en móvil; nombres breves, imágenes decorativas y saludo original respetando movimiento reducido. No modificar el selector de participantes por los apodos de las ilustraciones.

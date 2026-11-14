@@ -23,3 +23,10 @@ main{max-width:1120px;margin:46px auto 80px;padding:42px;min-height:55vh;backgro
 @media(max-width:700px){.identity-picker{min-width:145px;font-size:11px}.identity-picker select{font-size:12px}}
 
 .proposal-types{display:flex;gap:26px;margin-top:26px;border-bottom:1px solid var(--line)}.proposal-types a{padding:13px 0;min-height:44px;text-decoration:none;font-size:15px;border-bottom:2px solid transparent;display:flex;gap:8px;align-items:center}.proposal-types a[aria-current]{font-weight:750;border-color:var(--green)}.proposal-types span{font-size:11px;color:var(--muted)}.flight-note{font-size:13px;color:var(--muted);margin-top:15px}.flight-warning{color:var(--ink)}.field input[readonly]{background:#ececdf;color:var(--muted)}
+
+/* Personajes originales del grupo, apoyados sobre la arena. */
+.beach-friends{position:absolute;right:-22px;bottom:60px;width:57%;height:clamp(270px,28vw,380px);display:flex;align-items:flex-end;pointer-events:none}
+.beach-friends figure{position:relative;width:20%;height:100%;margin:0}.beach-friends figcaption{text-align:center;margin-top:8px;font-size:12px;font-weight:650;color:var(--ink)}
+.beach-friends img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 9px 5px #593d2220)}
+@media(min-width:701px) and (max-width:1000px){.beach-friends{right:-12px;width:64%;height:280px;bottom:35px}.hero{min-height:700px}}
+@media(max-width:700px){.hero{flex-direction:column;padding-top:42px;padding-bottom:28px;min-height:0}.beach-friends{position:relative;right:auto;bottom:auto;width:calc(100% + 16px);margin:26px -8px 0;height:clamp(190px,58vw,300px)}.beach-friends img{filter:drop-shadow(0 5px 3px #593d2220)}}
