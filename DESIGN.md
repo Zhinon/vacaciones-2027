@@ -189,3 +189,5 @@ La navegación del panel incorpora Paquetes / Solo vuelos con recuento y el mism
 Los cinco SVG aportados por el usuario forman parte del paisaje fijo de fondo, con los pies sobre la arena, detrás del contenido y sin nombres visibles. Fila a la derecha en escritorio y centrada sobre la arena en móvil; se oscurecen suavemente con el atardecer. Imágenes decorativas y saludo original respetando movimiento reducido. No modificar el selector de participantes por los apodos de las ilustraciones.
 
 En escritorio, pies al 3% del borde inferior; escena SVG anclada abajo (`xMidYMax slice`) para conservar la arena también en ventanas anchas. Móvil mantiene su posición al 8%.
+
+En móvil, palmera a media escala y anclada al extremo derecho de la arena para mostrar copa y tronco sin cruzar el título.
