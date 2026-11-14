@@ -263,11 +263,11 @@
       "css": ".ds-secondary{font:650 13px system-ui,sans-serif;min-height:44px;padding:12px 18px;border:1px solid #8baba0;border-radius:8px;background:transparent;color:var(--green,#1a5e52);cursor:pointer}.ds-secondary:hover{background:var(--green-light,#e5eee0)}.ds-secondary:focus-visible{outline:3px solid #a85223;outline-offset:4px}.ds-secondary:disabled{opacity:.48;cursor:default}"
     },
     {
-      "name": "Campo de nombre",
+      "name": "Campo de comentario",
       "kind": "input",
       "refersTo": "field",
-      "description": "Campo con etiqueta visible e identidad por confianza.",
-      "html": "<label class=\"ds-field\">Agregar mi nombre<input placeholder=\"Tu nombre\" autocomplete=\"given-name\"></label>",
+      "description": "Campo con etiqueta visible para comentarios.",
+      "html": "<label class=\"ds-field\">Tu comentario<input placeholder=\"Te leemos…\"></label>",
       "css": ".ds-field{display:grid;gap:7px;font:600 13px system-ui,sans-serif;color:var(--ink,#183e3b)}.ds-field input{font:400 13px system-ui,sans-serif;min-height:44px;padding:11px 12px;border:1px solid #aabbb3;border-radius:8px;background:var(--white,#fffdf6);color:var(--ink,#183e3b);caret-color:var(--green,#1a5e52)}.ds-field input::placeholder{color:#62736d;opacity:1}.ds-field input:focus-visible{outline:3px solid #a85223;outline-offset:4px}"
     },
     {

@@ -53,7 +53,7 @@ La URL `workers.dev` que devuelve el deploy es el enlace común para compartir. 
 
 ## Uso
 
-- Cada persona agrega o elige su nombre. Hay cinco lugares. Se recuerda el nombre en ese navegador.
+- Cada persona elige Vane, Ro, Charles, Rubio o Chino en el selector «¿Quién sos?». Se recuerda la elección en ese navegador.
 - Seleccionar un nombre es un mecanismo de confianza, no autenticación. Cualquiera con el enlace puede actuar como cualquier participante: fue la modalidad elegida para el grupo.
 - Una favorita implica “Me sumo”. Cambiar la opinión a “Puede ser” o “No me cierra” elimina esa favorita.
 - “Cómo vamos” ordena por aceptación, luego por menos rechazos y finalmente por favoritas. No considera una respuesta pendiente como rechazo.

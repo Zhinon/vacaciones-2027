@@ -23,3 +23,5 @@ El selector de nombres es deliberadamente de confianza y no verifica identidad. 
 - El servidor, las migraciones y los datos remotos no se modificaron como parte del rediseño.
 
 Nueva versión publicada: `42859ab7-b236-4987-ae08-a323359ad17c`. Comprobados HTML, cliente y fuente públicos; propuestas remotas idénticas a las anteriores. Vista pública a 855 px revisada sin errores de consola. Revisión adicional `ship` para esa primera pantalla.
+
+Selector de participantes: migración 0003 probada dos veces sin duplicados y aplicada a D1 remoto. Publicados los cinco nombres fijos. Navegador: selección de Charles y recarga conservan la identidad; luego se restauró el selector vacío. Sintaxis de cliente/servidor correcta. Versión publicada `cb4d61c7-51be-49c7-8ffd-74783fb8683c`.

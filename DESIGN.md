@@ -154,6 +154,9 @@ Destino y hotel encabezan cada tarjeta; favorita arriba a la derecha, datos de v
 ### Inputs / Fields
 Fondo blanco cálido, borde #aabbb3, relleno 11px 12px y altura mínima 44px. Etiqueta visible; los filtros tienen etiqueta accesible. Textareas permiten resize vertical. Errores junto al formulario en rojo terroso.
 
+### Selector de participante
+Etiqueta visible «¿Quién sos?» y select nativo permanente en la cabecera, con Vane, Ro, Charles, Rubio y Chino. Altura mínima 44px; 160px de ancho mínimo (145px en móvil). La elección se recuerda en el navegador, sin alta manual.
+
 ### Navigation
 Texto de 13px (12px en móvil), gap 30px (24px en móvil). Activo con peso 750, tinta y línea inferior de 2px; hover subrayado. Se mantiene en flujo y se desplaza horizontalmente si hace falta.
 
