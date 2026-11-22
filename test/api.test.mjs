@@ -102,16 +102,15 @@ test('private traveler profiles require browser credentials and stay encrypted o
   const people=(await request('state')).data.participants;const [a,b]=people;
   const tokenA='a'.repeat(43),tokenB='b'.repeat(43),intruder='z'.repeat(43);
   const headers=token=>({Authorization:'Bearer '+token});
-  const profile={firstNames:'Nombre Prueba',lastNames:'Apellido Prueba',birthDate:'1990-02-15',nationality:'Argentina',residenceCountry:'Argentina',email:'prueba@example.test',phone:'+54 261 555 0000',idNumber:'TEST-123456',idIssuer:'Argentina',consent:true};
+  const profile={firstNames:'Nombre Prueba',lastNames:'Apellido Prueba',birthDate:'1990-02-15',residenceCountry:'Argentina',email:'prueba@example.test',phone:'+54 261 555 0000',idNumber:'TEST-123456'};
   const put=(id,token,revision,data=profile,extra={})=>request('travelers','PUT',{participantId:id,revision,data},{...headers(token),...extra});
   assert.equal((await request('travelers/self')).status,401);
   assert.equal((await request('travelers/admin')).status,403);
   assert.equal((await put(a.id,tokenA,0,profile,{Origin:'https://other.test'})).status,403);
-  assert.equal((await put(a.id,tokenA,0,{...profile,consent:false})).status,400);
   assert.equal((await put(a.id,tokenA,0,{...profile,birthDate:'1990-02-31'})).status,400);
   assert.equal((await put(a.id,tokenA,0,{...profile,passportNumber:'TEST-PASSPORT'})).status,400);
   assert.equal((await put(a.id,tokenA,0)).status,200);
-  const own=await request('travelers/self','GET',undefined,headers(tokenA));assert.equal(own.status,200);assert.equal(own.data.data.idNumber,profile.idNumber);assert.equal(own.data.participantId,a.id);
+  const own=await request('travelers/self','GET',undefined,headers(tokenA));assert.equal(own.status,200);assert.equal(own.data.data.idNumber,profile.idNumber);assert.equal(own.data.participantId,a.id);assert.equal(own.data.data.nationality,'Argentina');assert.equal(own.data.data.idIssuer,'Argentina');assert.ok(!('consentAt' in own.data.data));
   const stored=await db.prepare('SELECT * FROM travelers WHERE participant_id=?').bind(a.id).first();
   assert.ok(!JSON.stringify(stored).includes(profile.idNumber));assert.ok(!JSON.stringify(stored).includes(tokenA));assert.ok(!JSON.stringify(stored).includes(profile.email));
   const publicState=JSON.stringify((await request('state?include=flights')).data);assert.ok(!publicState.includes(profile.idNumber));assert.ok(!publicState.includes('encrypted_data'));assert.ok(!publicState.includes('edit_hash'));

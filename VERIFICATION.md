@@ -38,6 +38,6 @@ Publicado y comprobado en producción: versión `6dfd9cf9-a63e-48bf-9d7a-933e7e2
 
 ## Datos privados · 22/11/2026
 - Sintaxis de Worker, cliente principal y módulos de pasajeros verificada.
-- Cinco pruebas de integración pasan. La nueva prueba cubre rechazo de acceso anónimo/cruzado, validación, consentimiento, fechas, cifrado sin texto personal ni credencial en D1, ausencia de fichas en el estado público, protección de fichas ajenas, revisión concurrente, lectura de organizador, recuperación/revocación y borrado propio. Worker y módulo se agrupan con esbuild para Miniflare.
+- Cinco pruebas de integración pasan. La nueva prueba cubre rechazo de acceso anónimo/cruzado, validación, nacionalidad y emisor por defecto sin checkbox de autorización, fechas, cifrado sin texto personal ni credencial en D1, ausencia de fichas en el estado público, protección de fichas ajenas, revisión concurrente, lectura de organizador, recuperación/revocación y borrado propio. Worker y módulo se agrupan con esbuild para Miniflare.
 - Interfaz local: carga y guardado de datos ficticios, recarga que conserva la ficha por credencial del navegador, cambio de nombre con formulario independiente. Vista 390px con campos en una columna, sin desbordes. No se cargaron datos personales ni perfiles de prueba en producción.
 - Primera asignación por confianza al nombre elegido; privacidad posterior por credencial propia del navegador. No es autenticación de identidad y no protege frente a otra persona que use el mismo perfil del navegador.

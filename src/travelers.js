@@ -32,7 +32,7 @@ export async function travelersApi(request,env,path,{member,admin,body,json,ApiE
  if(path==='/api/travelers'&&request.method==='PUT'){
   const b=await body(request);await member(db,b.participantId);
   if(!Number.isInteger(b.revision)||b.revision<0)throw new ApiError(400,'Actualizá el formulario antes de guardar.');
-  const data=validateTraveler(b.data,ApiError);const encrypted=await encrypt({...data,consentAt:new Date().toISOString()},b.participantId,k);
+  const data=validateTraveler(b.data,ApiError);const encrypted=await encrypt(data,b.participantId,k);
   const existing=await db.prepare('SELECT participant_id FROM travelers WHERE edit_hash=?').bind(hash).first();
   if(existing&&existing.participant_id!==b.participantId)throw new ApiError(403,'Este acceso pertenece a otra persona.');
   const r=await db.prepare("INSERT INTO travelers(participant_id,edit_hash,encrypted_data) SELECT ?,?,? WHERE ?=0 ON CONFLICT(participant_id) DO NOTHING").bind(b.participantId,hash,encrypted,b.revision).run();
@@ -50,7 +50,10 @@ export function validateTraveler(input,ApiError){
  if(!input||typeof input!=='object'||Array.isArray(input))throw new ApiError(400,'Completá tus datos.');
  const out={};const required=['firstNames','lastNames','birthDate','nationality','residenceCountry','email','phone'];
  const fields={firstNames:100,lastNames:100,birthDate:10,sex:1,nationality:80,residenceCountry:80,email:180,phone:35,idNumber:35,idIssuer:80,idExpiry:10,passportNumber:35,passportIssuer:80,passportExpiry:10};
- for(const [name,max] of Object.entries(fields)){const value=input[name]??'';if(typeof value!=='string'||value.trim().length>max)throw new ApiError(400,'Revisá la longitud de los campos.');out[name]=value.trim();}
+ for(const [name,max] of Object.entries(fields)){const value=input[name]??(name==='nationality'?'Argentina':'');if(typeof value!=='string'||value.trim().length>max)throw new ApiError(400,'Revisá la longitud de los campos.');out[name]=value.trim();}
+ if(!out.nationality)out.nationality='Argentina';
+ out.idIssuer=out.idNumber?(out.idIssuer||'Argentina'):'';
+ out.passportIssuer=out.passportNumber?(out.passportIssuer||'Argentina'):'';
  if(required.some(name=>!out[name]))throw new ApiError(400,'Completá los campos obligatorios.');
  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(out.email))throw new ApiError(400,'Revisá el correo electrónico.');
  if(!/^\+?[0-9 ()-]{6,35}$/.test(out.phone))throw new ApiError(400,'Ingresá un teléfono con código de país.');
@@ -59,7 +62,6 @@ export function validateTraveler(input,ApiError){
  if(out.birthDate>new Date().toISOString().slice(0,10)||out.birthDate<'1900-01-01')throw new ApiError(400,'Revisá la fecha de nacimiento.');
  if(!out.idNumber&&!out.passportNumber)throw new ApiError(400,'Completá al menos un documento: DNI o pasaporte.');
  if(out.idNumber&&!out.idIssuer)throw new ApiError(400,'Indicá el país emisor del DNI.');
- if((out.passportNumber||out.passportIssuer||out.passportExpiry)&&!(out.passportNumber&&out.passportIssuer&&out.passportExpiry))throw new ApiError(400,'Completá número, país emisor y vencimiento del pasaporte, o dejá los tres vacíos.');
- if(input.consent!==true)throw new ApiError(400,'Confirmá que el organizador puede usar estos datos para la reserva.');
+ if((out.passportNumber||out.passportIssuer||out.passportExpiry)&&!(out.passportNumber&&out.passportIssuer&&out.passportExpiry))throw new ApiError(400,'Completá número y vencimiento del pasaporte, o dejá ambos vacíos.');
  return out;
 }
