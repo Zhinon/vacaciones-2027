@@ -1,3 +1,4 @@
+import {travelersApi} from './travelers.js';
 const securityHeaders = {
   'X-Content-Type-Options':'nosniff',
   'Referrer-Policy':'strict-origin-when-cross-origin',
@@ -17,6 +18,7 @@ async function state(db,includeFlights=false){const [p,m,v,f,c,s]=await db.batch
 async function api(request,env,path){
   if(!env.DB)throw new ApiError(503,'La base compartida no está conectada. Intentá de nuevo más tarde.');
   const db=env.DB;
+  if(path.startsWith('/api/travelers'))return travelersApi(request,env,path,{member,admin,body,json,ApiError});
   if(request.method==='GET'&&path==='/api/state')return json(await state(db,new URL(request.url).searchParams.get('include')==='flights'));
   if(!['POST','PUT','DELETE'].includes(request.method))throw new ApiError(405,'Esta acción no está disponible.');
   const origin=request.headers.get('Origin');

@@ -1,3 +1,4 @@
+import {build} from 'esbuild';
 import {after,before,test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -9,7 +10,8 @@ async function request(path,method='GET',body,extra={}){
   return {status:r.status,data:await r.json()};
 }
 before(async()=>{
-  mf=new Miniflare(convertV4MiniflareOptions({modules:true,script:await readFile(new URL('../src/worker.js',import.meta.url),'utf8'),compatibilityDate:'2026-11-13',d1Databases:['DB'],bindings:{ADMIN_KEY:key},serviceBindings:{ASSETS:()=>new Response('asset')}}));
+  const bundle=await build({entryPoints:[new URL('../src/worker.js',import.meta.url).pathname],bundle:true,write:false,format:'esm',platform:'browser',target:'es2022'});
+  mf=new Miniflare(convertV4MiniflareOptions({modules:true,script:bundle.outputFiles[0].text,compatibilityDate:'2026-11-13',d1Databases:['DB'],bindings:{ADMIN_KEY:key,TRAVELER_DATA_KEY:Buffer.alloc(32,7).toString('base64')},serviceBindings:{ASSETS:()=>new Response('asset')}}));
   const db=await mf.getD1Database('DB');
   await db.exec(await readFile(new URL('../migrations/0001_initial.sql',import.meta.url),'utf8'));
   await db.exec(await readFile(new URL('../migrations/0002_proposals.sql',import.meta.url),'utf8'));
@@ -93,4 +95,41 @@ test('clearing a vote is idempotent, scoped to its participant and proposal, and
   assert.ok(!(await request('state')).data.favorites.some(f=>f.participant_id===a.id&&f.proposal_id===p.id));
   await favorite(q);await vote(a,p,'yes');await vote(a,p,null);
   assert.ok((await request('state')).data.favorites.some(f=>f.participant_id===a.id&&f.proposal_id===q.id));
+});
+
+test('private traveler profiles require browser credentials and stay encrypted outside authorized responses',async()=>{
+  const db=await mf.getD1Database('DB');await db.exec(await readFile(new URL('../migrations/0005_private_travelers.sql',import.meta.url),'utf8'));
+  const people=(await request('state')).data.participants;const [a,b]=people;
+  const tokenA='a'.repeat(43),tokenB='b'.repeat(43),intruder='z'.repeat(43);
+  const headers=token=>({Authorization:'Bearer '+token});
+  const profile={firstNames:'Nombre Prueba',lastNames:'Apellido Prueba',birthDate:'1990-02-15',nationality:'Argentina',residenceCountry:'Argentina',email:'prueba@example.test',phone:'+54 261 555 0000',idNumber:'TEST-123456',idIssuer:'Argentina',consent:true};
+  const put=(id,token,revision,data=profile,extra={})=>request('travelers','PUT',{participantId:id,revision,data},{...headers(token),...extra});
+  assert.equal((await request('travelers/self')).status,401);
+  assert.equal((await request('travelers/admin')).status,403);
+  assert.equal((await put(a.id,tokenA,0,profile,{Origin:'https://other.test'})).status,403);
+  assert.equal((await put(a.id,tokenA,0,{...profile,consent:false})).status,400);
+  assert.equal((await put(a.id,tokenA,0,{...profile,birthDate:'1990-02-31'})).status,400);
+  assert.equal((await put(a.id,tokenA,0,{...profile,passportNumber:'TEST-PASSPORT'})).status,400);
+  assert.equal((await put(a.id,tokenA,0)).status,200);
+  const own=await request('travelers/self','GET',undefined,headers(tokenA));assert.equal(own.status,200);assert.equal(own.data.data.idNumber,profile.idNumber);assert.equal(own.data.participantId,a.id);
+  const stored=await db.prepare('SELECT * FROM travelers WHERE participant_id=?').bind(a.id).first();
+  assert.ok(!JSON.stringify(stored).includes(profile.idNumber));assert.ok(!JSON.stringify(stored).includes(tokenA));assert.ok(!JSON.stringify(stored).includes(profile.email));
+  const publicState=JSON.stringify((await request('state?include=flights')).data);assert.ok(!publicState.includes(profile.idNumber));assert.ok(!publicState.includes('encrypted_data'));assert.ok(!publicState.includes('edit_hash'));
+  assert.equal((await request('travelers/self?participantId='+a.id,'GET',undefined,headers(intruder))).status,404);
+  assert.equal((await put(a.id,intruder,0,{...profile,idNumber:'STOLEN'})).status,409);
+  assert.equal((await put(a.id,intruder,1,{...profile,idNumber:'STOLEN'})).status,409);
+  assert.equal((await put(b.id,tokenA,0)).status,403);
+  assert.equal((await put(b.id,tokenB,0,{...profile,firstNames:'Otra Persona'})).status,200);
+  assert.equal((await put(a.id,tokenA,1,{...profile,phone:'+54 261 555 1111'})).status,200);
+  assert.equal((await put(a.id,tokenA,1)).status,409);
+  const group=await request('travelers/admin','GET',undefined,headers(key));assert.equal(group.status,200);assert.equal(group.data.travelers.length,2);
+  assert.equal((await request('travelers/rotate','POST',{participantId:a.id},headers(tokenB))).status,403);
+  const rotate=await request('travelers/rotate','POST',{participantId:a.id},headers(key));assert.equal(rotate.status,200);assert.match(rotate.data.token,/^[A-Za-z0-9_-]{43}$/);
+  assert.equal((await request('travelers/self','GET',undefined,headers(tokenA))).status,404);
+  assert.equal((await put(a.id,tokenA,2)).status,409);
+  const recovered=await request('travelers/self','GET',undefined,headers(rotate.data.token));assert.equal(recovered.status,200);assert.equal(recovered.data.data.phone,'+54 261 555 1111');
+  assert.equal((await request('travelers/self','DELETE',{revision:1},headers(rotate.data.token))).status,409);
+  assert.equal((await request('travelers/self','DELETE',{revision:recovered.data.revision},headers(rotate.data.token))).status,200);
+  assert.equal((await request('travelers/self','GET',undefined,headers(tokenB))).status,200);
+  assert.equal((await request('travelers/self','GET',undefined,headers(rotate.data.token))).status,404);
 });

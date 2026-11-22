@@ -28,3 +28,6 @@ Selector permanente «¿Quién sos?» con Vane, Ro, Charles, Rubio y Chino, en e
 
 ## Vuelos separados
 Relevamiento del 14/11/2026: 26 consultas con cinco adultos en 18 rutas, 11 propuestas seleccionadas. Pestañas Paquetes / Solo vuelos, con filtro por origen. ARS para vuelos, USD para paquetes, sin conversión implícita ni sumar hotel inventado. Distinguir evidencia de búsqueda para cinco (`search`) y cotización directa (`group`). Llegadas +1 y duración real hasta 14 días visibles; fuentes y análisis completo en Investigación.
+
+## Datos privados del grupo
+Pestaña Mis datos para reunir información de pasajeros con el objetivo de reservar: nombres, nacimiento, nacionalidad, residencia, contacto y DNI / pasaporte. El usuario pide seguir eligiendo el nombre, sin login ni distribución inicial de enlaces. Primera carga por confianza; acceso posterior protegido por credencial propia del navegador. Sólo el organizador con clave puede leer las cinco fichas y recuperar accesos. Documentos y contacto cifrados en el servidor y ausentes del estado público. Sin fotos ni tarjetas.

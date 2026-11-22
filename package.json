@@ -9,7 +9,7 @@
     "db:remote": "wrangler d1 migrations apply vacaciones-2027 --remote",
     "deploy": "node scripts/deploy.mjs",
     "test": "node --test test/*.test.mjs",
-    "check": "node --check src/worker.js && node --check public/app.js"
+    "check": "node --check src/worker.js && node --check public/app.js && node --check src/travelers.js && node --check public/travelers.js"
   },
   "devDependencies": {
     "wrangler": "4.162.0"

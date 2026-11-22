@@ -195,3 +195,6 @@ En móvil, palmera SVG independiente, alta y angosta sobre el margen derecho; co
 Quitado el óvalo decorativo de la arena. Ambas pestañas tienen una descripción breve de inclusiones; barra de filtros sin borde superior para evitar separadores consecutivos.
 
 El SVG de Chino se reemplazó por el archivo corregido que aportó el usuario desde primer-personaje-estilo-unificado/personaje.svg (ruta corregida por el usuario). Se publica idéntico al original suministrado, conservando su viewBox, estilo y animación, sin la normalización previa.
+
+## Mis datos · Operate
+Formulario privado en dos columnas de escritorio y una en móvil, con los campos habituales de la reserva. Misma tipografía y papel de las vistas de lectura, sin hero adicional. Pasaporte opcional en un desplegable; acceso de organizador separado en un desplegable al pie. Guardado explícito, revisión de concurrencia, errores visibles, aviso de acceso ligado al navegador y confirmación antes de borrar. Los datos privados no se reutilizan en tarjetas, votos ni comentarios.

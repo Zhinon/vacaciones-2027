@@ -1,0 +1,1 @@
+CREATE TABLE travelers ( participant_id TEXT PRIMARY KEY REFERENCES participants(id), edit_hash TEXT NOT NULL UNIQUE, encrypted_data TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')) );

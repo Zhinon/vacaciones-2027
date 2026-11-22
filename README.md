@@ -68,7 +68,7 @@ La investigación es del 13 de noviembre de 2026. Sólo Marinas y Pratagy tienen
 
 Las capturas son evidencia histórica: no cambian al editar una propuesta. La fecha del informe también es histórica. En una actualización, revisar inclusiones, equipaje y pendientes junto con el precio; la pantalla de edición actual permite cambiar precio, fechas, hotel, salida, noches, fuente y nota.
 
-No se recopilan documentos, correos ni datos de pago. Se guardan nombre elegido, votos, favoritas, comentarios y sugerencias. `noindex` y robots desalientan indexación pero no vuelven privado un enlace público.
+El tablero público guarda nombre elegido, votos, favoritas, comentarios y sugerencias. La pestaña Mis datos permite cargar datos de pasajeros privados (documentos y contacto); no se guardan fotos ni datos de pago. `noindex` y robots desalientan indexación pero no vuelven privado un enlace público.
 
 ## GitHub
 
@@ -87,3 +87,15 @@ Once propuestas de sólo vuelo en `#vuelos`, separadas de los seis paquetes. El 
 El servidor conserva la moneda de cada propuesta. Editar fechas de vuelo requiere recotizar: la pantalla las muestra como sólo lectura y el servidor rechaza cambios de fechas/duración desde esa edición. Las ediciones de precio siguen incrementando revisión.
 
 Compatibilidad: `/api/state` conserva sólo paquetes para clientes anteriores, que asumían USD. El cliente nuevo consulta `/api/state?include=flights`. La migración 0004 sólo agrega propuestas, sin cambiar paquetes ni opiniones.
+
+## Datos privados para reservar · 22/11/2026
+
+`#datos` conserva el selector de nombres y crea una credencial aleatoria de 256 bits en el navegador. La primera carga para cada nombre es por confianza; no verifica identidad. Una vez guardado, elegir ese nombre desde otro navegador no permite leer ni reemplazar la ficha. En un dispositivo compartido, quien use el mismo perfil del navegador puede usar sus accesos guardados.
+
+Los datos se cifran con AES-256-GCM y AAD por participante antes de persistir en D1 (`travelers`). Sólo se guardan hashes SHA-256 de las credenciales. El estado público nunca devuelve fichas, hashes ni textos cifrados. No se guardan datos personales en localStorage: sólo la credencial de acceso. Los datos del formulario se mantienen en memoria y se descartan al salir. No hay autofill desde votos ni sincronización con aerolíneas.
+
+Secret requerido: `TRAVELER_DATA_KEY`, 32 bytes aleatorios en base64; respaldo local en `.dev.vars` (0600, ignorado). No rotarlo sin migrar antes el cifrado existente. `ADMIN_KEY` autoriza la lectura del grupo y la recuperación de accesos. Cada ficha registra confirmación de uso para la reserva. Guardar verifica revisión para evitar sobrescrituras concurrentes.
+
+El organizador entra en Mis datos → Acceso del organizador con la clave ya configurada. Puede emitir un enlace privado para recuperar una ficha: rota la credencial anterior, no borra sus datos. El enlace lleva el secreto sólo en el fragmento, se consume al abrir y se limpia de la URL; compartirlo concede acceso a esa ficha. El titular puede borrar sus datos desde su formulario. No se envían mensajes a los amigos automáticamente.
+
+Endpoints propios: `GET /api/travelers/self`, `PUT /api/travelers`, `DELETE /api/travelers/self`, `GET /api/travelers/admin`, `POST /api/travelers/rotate`. Todas las respuestas usan no-store, autorización por credencial y control de origen para escrituras. La migración 0005 crea una tabla vacía, sin tocar votos ni propuestas.
